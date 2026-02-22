@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videollamada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="match.html">Conoce gente</a></li>
+                <li><a href="tusMatches.html">Tus Matches</a></li>
+                <li><a href="videollamada.html">Videollamada</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Videollamada en Curso</h1>
+        <div id="videollamada-info">
+            <p><strong>Fecha:</strong> <span id="fecha-llamada"></span></p>
+            <p><strong>Estado:</strong> <span id="estado-llamada"></span></p>
+        </div>
+
+        <p class="subtext">Usuarios en esta videollamada:</p>
+        <div id="user-list-videollamada">
+            <!-- Aquí se mostrarán los usuarios de la videollamada -->
+        </div>
+
+        <p class="subtext">Juegos en esta videollamada:</p>
+        <div id="games-list">
+            <!-- Dynamically populated games will appear here -->
+        </div>
+
+
+        <!-- Sección de Juegos -->
+        <section id="games-section">
+            <h2>Juegos</h2>
+            <p class="section-subtitle">AÑADE JUEGOS A TU VIDEOLLAMADA</p>
+            <label for="gameName">NOMBRE</label>
+            <input type="text" id="gameName" placeholder="Nombre del juego">
+            <div class="button-group-right">
+                <button id="addGame" class="btn-primary">Añadir</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - JaveMatch</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
