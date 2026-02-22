@@ -28,6 +28,15 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<!--
+			Lombok and Byte Buddy versions are pinned to releases compatible with
+			newer JDKs (e.g. JDK 27). Maven's compiler plugin must also be told to
+			run annotation processing explicitly, since recent JDKs disable it by
+			default.
+		-->
+		<lombok.version>1.18.48</lombok.version>
+		<byte-buddy.version>1.18.14</byte-buddy.version>
+		<maven.compiler.proc>full</maven.compiler.proc>
 	</properties>
 	<dependencies>
 		<dependency>
