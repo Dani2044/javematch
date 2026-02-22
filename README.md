@@ -4,14 +4,14 @@
 
 ## Table of Contents
 
-* [Project Purpose](https://www.google.com/search?q=%23project-purpose)
-* [Architecture & Design](https://www.google.com/search?q=%23architecture--design)
-* [Core Features](https://www.google.com/search?q=%23core-features)
-* [Tech Stack](https://www.google.com/search?q=%23tech-stack)
-* [Project Structure](https://www.google.com/search?q=%23project-structure)
-* [Setup and Installation](https://www.google.com/search?q=%23setup-and-installation)
-* [Development Team](https://www.google.com/search?q=%23development-team)
-* [License](https://www.google.com/search?q=%23license)
+* [Project Purpose](#project-purpose)
+* [Architecture & Design](#architecture--design)
+* [Core Features](#core-features)
+* [Tech Stack](#tech-stack)
+* [Project Structure](#project-structure)
+* [Setup and Installation](#setup-and-installation)
+* [Development Team](#development-team-javengineering)
+* [License](#license)
 
 ---
 
@@ -65,20 +65,23 @@ The system is built as a **RESTful Web Application** using a layered architectur
 ## Project Structure
 
 ```text
-javematch/
-├── .github/workflows/         # CI/CD: Automated deployment to Azure
+.
+├── .devcontainer/             # Dev container configuration for consistent tooling
+├── .github/workflows/         # CI/CD: automated deployment to Azure
 ├── docker-compose.yml         # MySQL container orchestration
-├── javematch/
-│   ├── src/main/java/gajudama/javematch/
-│   │   ├── accesoDatos/       # JPA Repositories (Persistence)
-│   │   ├── logic/             # Business Logic & Services
-│   │   ├── model/             # Entities (User, Match, VideoCall, Plan)
-│   │   └── web/               # REST Controllers (API Endpoints)
-│   └── src/main/resources/
-│       ├── static/            # User Interface (HTML, CSS, JS)
-│       └── data.sql           # Initial database seeding
-└── JaveMatch.pdf              # Functional requirements & methodology
-
+├── LICENSE.txt                # MIT License
+├── PROYECT.md                 # Project methodology & technical documentation
+├── README.md                  # Project overview
+├── JaveMatch.pdf              # Functional requirements & methodology
+└── javematch/                 # Spring Boot application (Maven module)
+    ├── src/main/java/gajudama/javematch/
+    │   ├── accesoDatos/       # JPA Repositories (Persistence)
+    │   ├── logic/             # Business Logic & Services
+    │   ├── model/             # Entities (User, Match, VideoCall, Plan)
+    │   └── web/               # REST Controllers (API Endpoints)
+    └── src/main/resources/
+        ├── static/            # User Interface (HTML, CSS, JS)
+        └── data.sql           # Initial database seeding
 ```
 
 ---
@@ -103,13 +106,16 @@ cd JaveMatch
 
 2. **Launch the Database:**
 ```bash
-docker-compose up -d
+docker compose up -d
 
 ```
 
 
 3. **Run the Application:**
+The Maven module (including the `mvnw` wrapper) lives in the `javematch/` directory. Start it with the default H2 profile for local development, or uncomment the MySQL datasource in `javematch/src/main/resources/application.properties` for production:
+
 ```bash
+cd javematch
 ./mvnw spring-boot:run
 
 ```
