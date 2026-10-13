@@ -8,6 +8,7 @@
 * [Architecture & Design](#architecture--design)
 * [Core Features](#core-features)
 * [Tech Stack](#tech-stack)
+* [Deployment & CI](#deployment--ci)
 * [Project Structure](#project-structure)
 * [Setup and Installation](#setup-and-installation)
 * [Development Team](#development-team-javengineering)
@@ -57,8 +58,18 @@ The system is built as a **RESTful Web Application** using a layered architectur
 | **Backend** | Java 17, Spring Boot, Spring Data JPA |
 | **Frontend** | HTML5, CSS3, JavaScript (Vanilla) |
 | **Database** | MySQL (Production/Docker), H2 (Testing) |
-| **DevOps** | Docker, GitHub Actions (CI/CD), Azure App Service |
+| **DevOps** | Docker, GitHub Actions (CI: build + tests), Azure App Service (previously deployed) |
 | **Build Tool** | Maven |
+
+---
+
+## Deployment & CI
+
+JaveMatch was previously deployed to **Azure App Service** (`JaveMatch2`) through an automated
+GitHub Actions workflow that built the JAR and deployed it to the `Production` slot. The Azure
+App Service has since been decommissioned, so the deployment step was removed from CI; the
+historical workflow and its runs remain in the git history. CI now runs the build and the full
+test suite in GitHub Actions on every push to `main`.
 
 ---
 
@@ -67,7 +78,7 @@ The system is built as a **RESTful Web Application** using a layered architectur
 ```text
 .
 ├── .devcontainer/             # Dev container configuration for consistent tooling
-├── .github/workflows/         # CI/CD: automated deployment to Azure
+├── .github/workflows/         # CI: build and test suite (historical Azure deploy in git history)
 ├── docker-compose.yml         # MySQL container orchestration
 ├── LICENSE.txt                # MIT License
 ├── PROYECT.md                 # Project methodology & technical documentation
@@ -98,8 +109,8 @@ The system is built as a **RESTful Web Application** using a layered architectur
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/MapaRuiz/JaveMatch.git
-cd JaveMatch
+git clone https://github.com/Dani2044/javematch.git
+cd javematch
 
 ```
 
